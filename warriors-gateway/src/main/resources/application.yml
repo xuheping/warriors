@@ -1,0 +1,18 @@
+server:
+  port: 8095
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: warriors-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: warriors-seattle
+          uri: http://127.0.0.1:8080/
+          predicates:
+            - Path=/seattle/**

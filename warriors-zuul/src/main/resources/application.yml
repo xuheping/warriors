@@ -1,0 +1,19 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
+server:
+  port: 8090
+spring:
+  application:
+    name: warriors-zuul
+zuul:
+  routes:
+    seattle-service: #如果想让单个服务的匹配缩短，可以单个配置，这样匹配成功后，转发时就不会去除前缀，访问路径：http://localhost:8090/user/1
+      path: /seattle/**
+      serviceId: warriors-seattle
+      stripPrefix: true
+    houston-service: #如果想让单个服务的匹配缩短，可以单个配置，这样匹配成功后，转发时就不会去除前缀，访问路径：http://localhost:8090/user/1
+      path: /houston/**
+      serviceId: warriors-houston
+      stripPrefix: true

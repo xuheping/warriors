@@ -1,0 +1,27 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+server:
+  port: 8091
+spring:
+  application:
+    name: warriors-config
+  cloud:
+    config:
+      label: master
+      server:
+        jdbc:
+          sql: select p.key, p.value from properties p where p.application=? and p.profile=? and p.label=?
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/warriors-config?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+  profiles:
+    active: jdbc
+logging:
+  level:
+    com:
+      hp:
+        warriors: debug

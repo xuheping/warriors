@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.warriors.mapper.houston.StudentMapper">
+
+    <resultMap id="BaseResultMap" type="com.hp.warriors.entity.houston.Student">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="birth" property="birth"/>
+        <result column="weight" property="weight"/>
+        <result column="height" property="height"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+        name,
+        birth,
+        weight,
+        height,
+        create_time,
+        update_time
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.hp.warriors.entity.houston.Student">
+        INSERT INTO tb_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test='null != name'>
+                name,
+            </if>
+            <if test='null != birth'>
+                birth,
+            </if>
+            <if test='null != weight'>
+                weight,
+            </if>
+            <if test='null != height'>
+                height,
+            </if>
+                create_time,
+                update_time
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test='null != name'>
+                #{name},
+            </if>
+            <if test='null != birth'>
+                #{birth},
+            </if>
+            <if test='null != weight'>
+                #{weight},
+            </if>
+            <if test='null != height'>
+                #{height},
+            </if>
+                now(),
+                now()
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="com.hp.warriors.entity.houston.Student">
+        UPDATE tb_student
+        <set>
+            <if test='null != name'>name = #{name},</if>
+            <if test='null != birth'>birth = #{birth},</if>
+            <if test='null != weight'>weight = #{weight},</if>
+            <if test='null != height'>height = #{height},</if>
+            update_time = now()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+
+    <select id="getById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_student where id = #{id}
+    </select>
+
+</mapper>
