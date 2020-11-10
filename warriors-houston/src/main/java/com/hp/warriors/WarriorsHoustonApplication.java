@@ -6,10 +6,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableHystrix
 @EnableFeignClients
 @EnableEurekaClient
-/** 熔断注解*/
-@EnableHystrix
 @SpringBootApplication
 public class WarriorsHoustonApplication {
 
