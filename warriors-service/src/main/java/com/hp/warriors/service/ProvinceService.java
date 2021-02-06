@@ -1,7 +1,7 @@
 package com.hp.warriors.service;
 
-import com.hp.warriors.entity.Province;
-import com.hp.warriors.mapper.warriors.ProvinceMapper;
+import com.hp.warriors.entity.seattle.Province;
+import com.hp.warriors.mapper.seattle.ProvinceMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

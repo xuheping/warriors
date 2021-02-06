@@ -1,0 +1,11 @@
+server:
+  port: 8085
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    protocol: zookeeper
+  application:
+    name: WARRIORS-WEB-ATLANTA
+  scan:
+    base-packages: com.hp.warriors
+

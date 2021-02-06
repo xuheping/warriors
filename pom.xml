@@ -15,19 +15,21 @@
     <description>Spring Boot Project</description>
 
     <modules>
+        <module>warriors-eureka</module>
+        <module>warriors-config</module>
+        <module>warriors-zuul</module>
+        <module>warriors-gateway</module>
+
         <module>warriors-api</module>
         <module>warriors-common</module>
         <module>warriors-service</module>
 
         <module>warriors-test</module>
 
-        <module>warriors-eureka</module>
-        <module>warriors-config</module>
-        <module>warriors-zuul</module>
-        <module>warriors-gateway</module>
-        <module>warriors-houston</module>
-        <module>warriors-seattle</module>
-        <module>warriors-laker</module>
+        <module>warriors-web-atlanta</module>
+        <module>warriors-web-boston</module>
+        <module>warriors-web-houston</module>
+        <module>warriors-web-seattle</module>
     </modules>
 
     <properties>
@@ -56,6 +58,14 @@
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>

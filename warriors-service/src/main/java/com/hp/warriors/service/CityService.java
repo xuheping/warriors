@@ -1,7 +1,7 @@
 package com.hp.warriors.service;
 
-import com.hp.warriors.entity.City;
-import com.hp.warriors.mapper.warriors.CityMapper;
+import com.hp.warriors.entity.seattle.City;
+import com.hp.warriors.mapper.seattle.CityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

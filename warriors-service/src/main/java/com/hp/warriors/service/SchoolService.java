@@ -1,7 +1,7 @@
 package com.hp.warriors.service;
 
-import com.hp.warriors.entity.School;
-import com.hp.warriors.mapper.warriors.SchoolMapper;
+import com.hp.warriors.entity.seattle.School;
+import com.hp.warriors.mapper.seattle.SchoolMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

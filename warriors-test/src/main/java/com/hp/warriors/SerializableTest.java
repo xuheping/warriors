@@ -1,6 +1,6 @@
 package com.hp.warriors;
 
-import com.hp.warriors.entity.SerializableEntity;
+import com.hp.warriors.entity.seattle.SerializableEntity;
 
 import java.io.*;
 

@@ -3,8 +3,9 @@ package com.hp.warriors.mapper.houston;
 import com.hp.warriors.entity.houston.Student;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
-@Mapper
+@Repository
 public interface StudentMapper {
 
     int insert(Student student);
