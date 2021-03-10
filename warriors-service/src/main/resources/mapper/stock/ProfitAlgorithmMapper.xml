@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.warriors.mapper.stock.ProfitAlgorithmMapper">
+
+    <resultMap id="BaseResultMap" type="com.hp.warriors.entity.stock.ProfitAlgorithm" >
+        <result column="code" property="code" />
+        <result column="cash" property="cash" />
+        <result column="buy_price" property="buyPrice" />
+        <result column="current_price" property="currentPrice" />
+        <result column="rate" property="rate" />
+        <result column="earn_rate" property="earnRate" />
+        <result column="earn_money" property="earnMoney" />
+        <result column="start_date" property="startDate" />
+        <result column="end_date" property="endDate" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        code,
+        cash,
+        buy_price,
+        current_price,
+        rate,
+        earn_rate,
+        earn_money,
+        start_date,
+        end_date
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.hp.warriors.entity.stock.ProfitAlgorithm">
+        INSERT INTO profit_algorithm
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != code'>
+                code,
+            </if>
+            <if test ='null != cash'>
+                cash,
+            </if>
+            <if test ='null != buyPrice'>
+                buy_price,
+            </if>
+            <if test ='null != currentPrice'>
+                current_price,
+            </if>
+            <if test ='null != rate'>
+                rate,
+            </if>
+            <if test ='null != earnRate'>
+                earn_rate,
+            </if>
+            <if test ='null != earnMoney'>
+                earn_money,
+            </if>
+            <if test ='null != startDate'>
+                start_date,
+            </if>
+            <if test ='null != endDate'>
+                end_date
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != code'>
+                #{code},
+            </if>
+            <if test ='null != cash'>
+                #{cash},
+            </if>
+            <if test ='null != buyPrice'>
+                #{buyPrice},
+            </if>
+            <if test ='null != currentPrice'>
+                #{currentPrice},
+            </if>
+            <if test ='null != rate'>
+                #{rate},
+            </if>
+            <if test ='null != earnRate'>
+                #{earnRate},
+            </if>
+            <if test ='null != earnMoney'>
+                #{earnMoney},
+            </if>
+            <if test ='null != startDate'>
+                #{startDate},
+            </if>
+            <if test ='null != endDate'>
+                #{endDate}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="deleteByCode" >
+        DELETE FROM profit_algorithm WHERE code = #{code}
+    </delete>
+
+</mapper>

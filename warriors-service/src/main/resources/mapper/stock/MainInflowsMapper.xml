@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.warriors.mapper.stock.MainInflowsMapper">
+
+    <resultMap id="BaseResultMap" type="com.hp.warriors.entity.stock.MainInflows" >
+        <result column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="price" property="price" />
+        <result column="rise_fall" property="riseFall" />
+        <result column="net_inflow" property="netInflow" />
+        <result column="chang_hand" property="changHand" />
+        <result column="create_date" property="createDate" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+        code,
+        price,
+        rise_fall,
+        net_inflow,
+        chang_hand,
+        create_date
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.hp.warriors.entity.stock.MainInflows">
+        INSERT INTO main_inflows
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != code'>
+                code,
+            </if>
+            <if test ='null != price'>
+                price,
+            </if>
+            <if test ='null != riseFall'>
+                rise_fall,
+            </if>
+            <if test ='null != netInflow'>
+                net_inflow,
+            </if>
+            <if test ='null != changHand'>
+                chang_hand,
+            </if>
+            <if test ='null != createDate'>
+                create_date
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != code'>
+                #{code},
+            </if>
+            <if test ='null != price'>
+                #{price},
+            </if>
+            <if test ='null != riseFall'>
+                #{riseFall},
+            </if>
+            <if test ='null != netInflow'>
+                #{netInflow},
+            </if>
+            <if test ='null != changHand'>
+                #{changHand},
+            </if>
+            <if test ='null != createDate'>
+                #{createDate}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" >
+        DELETE FROM main_inflows
+        WHERE id = #{id}
+    </delete>
+
+    <select id="getByCodeAndDate" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/> from main_inflows where code = #{code} and create_date = #{createDate}
+    </select>
+
+    <update id="update" parameterType="com.hp.warriors.entity.stock.MainInflows">
+        UPDATE main_inflows
+        <set>
+            <if test ='null != code'>code = #{code},</if>
+            <if test ='null != price'>price = #{price},</if>
+            <if test ='null != riseFall'>rise_fall = #{riseFall},</if>
+            <if test ='null != netInflow'>net_inflow = #{netInflow},</if>
+            <if test ='null != changHand'>chang_hand = #{changHand},</if>
+            <if test ='null != createDate'>create_date = #{createDate}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+</mapper>

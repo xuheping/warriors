@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.warriors.mapper.stock.SnowPriceMapper">
+
+    <resultMap id="BaseResultMap" type="com.hp.warriors.entity.stock.SnowPrice" >
+        <result column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="price" property="price" />
+        <result column="current" property="current" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+        code,
+        name,
+        price,
+        current,
+        create_time
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.hp.warriors.entity.stock.SnowPrice">
+        INSERT INTO snow_price
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != code'>
+                code,
+            </if>
+            <if test ='null != name'>
+                name,
+            </if>
+            <if test ='null != price'>
+                price,
+            </if>
+            <if test ='null != current'>
+                current,
+            </if>
+            <if test ='null != createTime'>
+                create_time
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != code'>
+                #{code},
+            </if>
+            <if test ='null != name'>
+                #{name},
+            </if>
+            <if test ='null != price'>
+                #{price},
+            </if>
+            <if test ='null != current'>
+                #{current},
+            </if>
+            <if test ='null != createTime'>
+                #{createTime}
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

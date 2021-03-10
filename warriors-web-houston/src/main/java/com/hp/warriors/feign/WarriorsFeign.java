@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient("WARRIORS-SEATTLE")
+@FeignClient("WARRIORS-WEB-SEATTLE")
 public interface WarriorsFeign {
 
     @GetMapping("/student/get")

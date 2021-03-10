@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.warriors.mapper.stock.SnowProfitMapper">
+
+    <resultMap id="BaseResultMap" type="com.hp.warriors.entity.stock.SnowProfit" >
+        <result column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="report_name" property="reportName" />
+        <result column="research_cost" property="researchCost" />
+        <result column="gross_revenue" property="grossRevenue" />
+        <result column="net_profit" property="netProfit" />
+        <result column="non_net_profit" property="nonNetProfit" />
+        <result column="season_date" property="seasonDate" />
+        <result column="report_date" property="reportDate" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+        code,
+        report_name,
+        research_cost,
+        gross_revenue,
+        net_profit,
+        non_net_profit,
+        season_date,
+        report_date
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.hp.warriors.entity.stock.SnowProfit">
+        INSERT INTO snow_profit
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != code'>
+                code,
+            </if>
+            <if test ='null != reportName'>
+                report_name,
+            </if>
+            <if test ='null != researchCost'>
+                research_cost,
+            </if>
+            <if test ='null != grossRevenue'>
+                gross_revenue,
+            </if>
+            <if test ='null != netProfit'>
+                net_profit,
+            </if>
+            <if test ='null != nonNetProfit'>
+                non_net_profit,
+            </if>
+            <if test ='null != seasonDate'>
+                season_date,
+            </if>
+            <if test ='null != reportDate'>
+                report_date
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != code'>
+                #{code},
+            </if>
+            <if test ='null != reportName'>
+                #{reportName},
+            </if>
+            <if test ='null != researchCost'>
+                #{researchCost},
+            </if>
+            <if test ='null != grossRevenue'>
+                #{grossRevenue},
+            </if>
+            <if test ='null != netProfit'>
+                #{netProfit},
+            </if>
+            <if test ='null != nonNetProfit'>
+                #{nonNetProfit},
+            </if>
+            <if test ='null != seasonDate'>
+                #{seasonDate},
+            </if>
+            <if test ='null != reportDate'>
+                #{reportDate}
+            </if>
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="com.hp.warriors.entity.stock.SnowProfit">
+        UPDATE snow_profit
+        <set>
+            <if test ='null != code'>code = #{code},</if>
+            <if test ='null != reportName'>report_name = #{reportName},</if>
+            <if test ='null != researchCost'>research_cost = #{researchCost},</if>
+            <if test ='null != grossRevenue'>gross_revenue = #{grossRevenue},</if>
+            <if test ='null != netProfit'>net_profit = #{netProfit},</if>
+            <if test ='null != nonNetProfit'>non_net_profit = #{nonNetProfit},</if>
+            <if test ='null != seasonDate'>season_date = #{seasonDate},</if>
+            <if test ='null != reportDate'>report_date = #{reportDate}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="getByCodeAndReportDate" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/> from snow_profit where code = #{code} and report_date = #{reportDate}
+    </select>
+
+</mapper>

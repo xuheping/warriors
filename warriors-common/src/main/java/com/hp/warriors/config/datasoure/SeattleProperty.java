@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "spring.datasource.seattle")
+@ConfigurationProperties(prefix = "spring.datasource.stock")
 public class SeattleProperty {
 
     private String jdbcUrl;

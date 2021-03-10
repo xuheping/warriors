@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.warriors.mapper.stock.StockMapper">
+
+    <resultMap id="BaseResultMap" type="com.hp.warriors.entity.stock.Stock" >
+        <result column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="str_code" property="strCode" />
+        <result column="name" property="name" />
+        <result column="price" property="price" />
+        <result column="market_value" property="marketValue" />
+        <result column="pe" property="pe" />
+        <result column="source" property="source" />
+        <result column="section" property="section" />
+        <result column="pressure" property="pressure" />
+        <result column="support" property="support" />
+        <result column="stop_loss" property="stopLoss" />
+        <result column="stop_profit" property="stopProfit" />
+        <result column="support_diff_per" property="supportDiffPer" />
+        <result column="stop_profit_diff_per" property="stopProfitDiffPer" />
+        <result column="pressure_diff_per" property="pressureDiffPer" />
+        <result column="stop_loss_diff_per" property="stopLossDiffPer" />
+        <result column="deal_flag" property="dealFlag" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+        code,
+        str_code,
+        name,
+        price,
+        market_value,
+        pe,
+        source,
+        section,
+        pressure,
+        support,
+        stop_loss,
+        stop_profit,
+        support_diff_per,
+        stop_profit_diff_per,
+        pressure_diff_per,
+        stop_loss_diff_per,
+        deal_flag,
+        create_time,
+        update_time
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.hp.warriors.entity.stock.Stock">
+        INSERT INTO stock
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != code'>
+                code,
+            </if>
+            <if test ='null != strCode'>
+                str_code,
+            </if>
+            <if test ='null != name'>
+                name,
+            </if>
+            <if test ='null != price'>
+                price,
+            </if>
+            <if test ='null != marketValue'>
+                market_value,
+            </if>
+            <if test ='null != pe'>
+                pe,
+            </if>
+            <if test ='null != source'>
+                source,
+            </if>
+            <if test ='null != section'>
+                section,
+            </if>
+            <if test ='null != pressure'>
+                pressure,
+            </if>
+            <if test ='null != support'>
+                support,
+            </if>
+            <if test ='null != stopLoss'>
+                stop_loss,
+            </if>
+            <if test ='null != stopProfit'>
+                stop_profit,
+            </if>
+            <if test ='null != supportDiffPer'>
+                support_diff_per,
+            </if>
+            <if test ='null != stopProfitDiffPer'>
+                stop_profit_diff_per,
+            </if>
+            <if test ='null != pressureDiffPer'>
+                pressure_diff_per,
+            </if>
+            <if test ='null != stopLossDiffPer'>
+                stop_loss_diff_per,
+            </if>
+            <if test ='null != dealFlag'>
+                deal_flag,
+            </if>
+            <if test ='null != createTime'>
+                create_time,
+            </if>
+            <if test ='null != updateTime'>
+                update_time
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != code'>
+                #{code},
+            </if>
+            <if test ='null != strCode'>
+                #{strCode},
+            </if>
+            <if test ='null != name'>
+                #{name},
+            </if>
+            <if test ='null != price'>
+                #{price},
+            </if>
+            <if test ='null != marketValue'>
+                #{marketValue},
+            </if>
+            <if test ='null != pe'>
+                #{pe},
+            </if>
+            <if test ='null != source'>
+                #{source},
+            </if>
+            <if test ='null != section'>
+                #{section},
+            </if>
+            <if test ='null != pressure'>
+                #{pressure},
+            </if>
+            <if test ='null != support'>
+                #{support},
+            </if>
+            <if test ='null != stopLoss'>
+                #{stopLoss},
+            </if>
+            <if test ='null != stopProfit'>
+                #{stopProfit},
+            </if>
+            <if test ='null != supportDiffPer'>
+                #{supportDiffPer},
+            </if>
+            <if test ='null != stopProfitDiffPer'>
+                #{stopProfitDiffPer},
+            </if>
+            <if test ='null != pressureDiffPer'>
+                #{pressureDiffPer},
+            </if>
+            <if test ='null != stopLossDiffPer'>
+                #{stopLossDiffPer},
+            </if>
+            <if test ='null != dealFlag'>
+                #{dealFlag},
+            </if>
+            <if test ='null != createTime'>
+                #{createTime},
+            </if>
+            <if test ='null != updateTime'>
+                #{updateTime}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" >
+        DELETE FROM stock
+        WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.hp.warriors.entity.stock.Stock">
+        UPDATE stock
+        <set>
+            <if test ='null != code'>code = #{code},</if>
+            <if test ='null != strCode'>str_code = #{strCode},</if>
+            <if test ='null != name'>name = #{name},</if>
+            <if test ='null != price'>price = #{price},</if>
+            <if test ='null != marketValue'>market_value = #{marketValue},</if>
+            <if test ='null != pe'>pe = #{pe},</if>
+            <if test ='null != source'>source = #{source},</if>
+            <if test ='null != section'>section = #{section},</if>
+            <if test ='null != pressure'>pressure = #{pressure},</if>
+            <if test ='null != support'>support = #{support},</if>
+            <if test ='null != stopLoss'>stop_loss = #{stopLoss},</if>
+            <if test ='null != stopProfit'>stop_profit = #{stopProfit},</if>
+            <if test ='null != supportDiffPer'>support_diff_per = #{supportDiffPer},</if>
+            <if test ='null != stopProfitDiffPer'>stop_profit_diff_per = #{stopProfitDiffPer},</if>
+            <if test ='null != pressureDiffPer'>pressure_diff_per = #{pressureDiffPer},</if>
+            <if test ='null != stopLossDiffPer'>stop_loss_diff_per = #{stopLossDiffPer},</if>
+            <if test ='null != dealFlag'>deal_flag = #{dealFlag},</if>
+            <if test ='null != createTime'>create_time = #{createTime},</if>
+            update_time = now()
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="get" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/> from stock where code = #{code}
+    </select>
+
+    <select id="listAll" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/> from stock
+    </select>
+
+</mapper>

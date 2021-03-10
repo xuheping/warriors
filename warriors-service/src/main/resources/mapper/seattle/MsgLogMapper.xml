@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hp.warriors.mapper.seattle.MsgLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.hp.warriors.entity.seattle.MsgLog" >
+        <result column="msg_id" property="msgId" />
+        <result column="msg" property="msg" />
+        <result column="exchange" property="exchange" />
+        <result column="routing_key" property="routingKey" />
+        <result column="status" property="status" />
+        <result column="try_count" property="tryCount" />
+        <result column="next_try_time" property="nextTryTime" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        msg_id,
+        msg,
+        exchange,
+        routing_key,
+        status,
+        try_count,
+        next_try_time,
+        create_time,
+        update_time
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.hp.warriors.entity.seattle.MsgLog">
+        INSERT INTO msg_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != msgId'>
+                msg_id,
+            </if>
+            <if test ='null != msg'>
+                msg,
+            </if>
+            <if test ='null != exchange'>
+                exchange,
+            </if>
+            <if test ='null != routingKey'>
+                routing_key,
+            </if>
+            <if test ='null != status'>
+                status,
+            </if>
+            <if test ='null != tryCount'>
+                try_count,
+            </if>
+            <if test ='null != nextTryTime'>
+                next_try_time,
+            </if>
+            <if test ='null != createTime'>
+                create_time,
+            </if>
+            <if test ='null != updateTime'>
+                update_time
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != msgId'>
+                #{msgId},
+            </if>
+            <if test ='null != msg'>
+                #{msg},
+            </if>
+            <if test ='null != exchange'>
+                #{exchange},
+            </if>
+            <if test ='null != routingKey'>
+                #{routingKey},
+            </if>
+            <if test ='null != status'>
+                #{status},
+            </if>
+            <if test ='null != tryCount'>
+                #{tryCount},
+            </if>
+            <if test ='null != nextTryTime'>
+                #{nextTryTime},
+            </if>
+            <if test ='null != createTime'>
+                #{createTime},
+            </if>
+            <if test ='null != updateTime'>
+                #{updateTime}
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

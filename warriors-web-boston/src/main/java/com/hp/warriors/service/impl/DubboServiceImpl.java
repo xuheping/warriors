@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Service
 public class DubboServiceImpl implements DubboService {
 
-    public void testDubbo(){
-        System.out.println("访问成功");
+    public String testDubbo(){
+        return "访问成功";
     }
 }
