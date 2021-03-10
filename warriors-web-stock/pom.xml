@@ -8,9 +8,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.hp.warriors</groupId>
-	<artifactId>warriors-web-atlanta</artifactId>
+	<artifactId>warriors-web-stock</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>warriors-web-atlanta</name>
+	<name>warriors-web-stock</name>
 
 	<properties>
 		<java.version>1.8</java.version>
